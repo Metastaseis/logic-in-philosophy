@@ -1,10 +1,7 @@
-; a/tailwind.config.js /tailwind.config.js
+import rtl from 'tailwindcss-rtl';
 
--0,0 +1,10 
 export default {
- content: [ './index.html', './src/**/*.{js,jsx}',],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  theme: { extend: {} },
+  plugins: [rtl()]
 };

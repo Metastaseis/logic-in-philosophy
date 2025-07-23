@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-100 text-center text-sm text-gray-600 py-4 mt-8">
-      &copy; {new Date().getFullYear()} Logic in Philosophy. All rights reserved.
+    <footer className="bg-gray-200 text-center text-sm text-gray-600 py-4">
+      &copy; {new Date().getFullYear()} Logic in Philosophy
     </footer>
   );
-};
+}
 
-export default Footer;

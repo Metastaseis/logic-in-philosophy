@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "about": "About",
+    "workshop": "Workshop",
+    "media": "Media",
+    "resources": "Resources",
+    "archive": "Archive",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Welcome to Logic in Philosophy",
+    "intro": "Explore the frontiers of logic, language, and mind."
+  }
+}
