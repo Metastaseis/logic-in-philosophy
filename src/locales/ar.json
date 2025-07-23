@@ -1,14 +1,45 @@
 {
   "nav": {
-    "about": "About",
-    "workshop": "Workshop",
-    "media": "Media",
-    "resources": "Resources",
-    "archive": "Archive",
-    "contact": "Contact"
+    "home": "الرئيسية",
+    "about": "نبذة",
+    "workshop": "ورشة",
+    "media": "وسائط",
+    "resources": "موارد",
+    "archive": "أرشيف",
+    "contact": "اتصال"
   },
+
   "home": {
-    "title": "Welcome to Logic in Philosophy",
-    "intro": "Explore the frontiers of logic, language, and mind."
+    "title": "مرحباً بكم في منطق في الفلسفة",
+    "intro": "استكشف حدود المنطق، اللغة، والعقل."
+  },
+
+  "pages": {
+    "about": {
+      "title": "حول المشروع",
+      "body": "وصف المشروع بالعربية — يمكن تحديثه لاحقاً."
+    },
+    "workshop": {
+      "title": "ورشة",
+      "body": "نص تجريبي عن الورشة. سيتم ترجمته لاحقاً."
+    },
+    "media": {
+      "title": "وسائط",
+      "youtubeHeading": "محاضرة مميزة",
+      "zoomHeading": "ورشة مباشرة (Zoom)"
+    },
+    "resources": {
+      "title": "موارد",
+      "body": "روابط ومواد مساعدة للتعليم والبحث."
+    },
+    "archive": {
+      "title": "أرشيف",
+      "body": "تصفح الفعاليات والمنشورات السابقة."
+    },
+    "contact": {
+      "title": "اتصال",
+      "body": "أسئلة أو تعاون؟ تواصل عبر البريد الإلكتروني."
+    }
   }
 }
+

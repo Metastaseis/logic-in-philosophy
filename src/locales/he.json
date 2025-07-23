@@ -1,14 +1,44 @@
 {
   "nav": {
-    "about": "About",
-    "workshop": "Workshop",
-    "media": "Media",
-    "resources": "Resources",
-    "archive": "Archive",
-    "contact": "Contact"
+    "home": "בית",
+    "about": "אודות",
+    "workshop": "סדנה",
+    "media": "מדיה",
+    "resources": "משאבים",
+    "archive": "ארכיון",
+    "contact": "צור קשר"
   },
+
   "home": {
-    "title": "Welcome to Logic in Philosophy",
-    "intro": "Explore the frontiers of logic, language, and mind."
+    "title": "ברוכים הבאים ללוגיקה בפילוסופיה",
+    "intro": "חקור את קווי התפר בין לוגיקה, שפה ותודעה."
+  },
+
+  "pages": {
+    "about": {
+      "title": "אודות הפרויקט",
+      "body": "תיאור הפרויקט בעברית — ניתן לעדכן בהמשך."
+    },
+    "workshop": {
+      "title": "סדנה",
+      "body": "טקסט דמה על הסדנה. אפשר לתרגם מאוחר יותר."
+    },
+    "media": {
+      "title": "מדיה",
+      "youtubeHeading": "הרצאה נבחרת",
+      "zoomHeading": "סדנה חיה (Zoom)"
+    },
+    "resources": {
+      "title": "משאבים",
+      "body": "קישורים וחומרי עזר להוראה ומחקר."
+    },
+    "archive": {
+      "title": "ארכיון",
+      "body": "עיון באירועים ופרסומים קודמים."
+    },
+    "contact": {
+      "title": "צור קשר",
+      "body": "שאלות או שיתופי פעולה — צרו קשר בדוא\"ל."
+    }
   }
 }

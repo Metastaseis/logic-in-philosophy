@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About",
     "workshop": "Workshop",
     "media": "Media",
@@ -7,8 +8,38 @@
     "archive": "Archive",
     "contact": "Contact"
   },
+
   "home": {
     "title": "Welcome to Logic in Philosophy",
     "intro": "Explore the frontiers of logic, language, and mind."
+  },
+
+  "pages": {
+    "about": {
+      "title": "About the Project",
+      "body": "Logic in Philosophy investigates the intersection of formal reasoning and philosophical inquiry."
+    },
+    "workshop": {
+      "title": "Workshop",
+      "body": "Our annual workshop brings together scholars to discuss recent developments in logic and philosophy."
+    },
+    "media": {
+      "title": "Media",
+      "youtubeHeading": "Featured Lecture",
+      "zoomHeading": "Live Workshop (Zoom)"
+    },
+    "resources": {
+      "title": "Resources",
+      "body": "Download readings, slides, and handouts for teaching and research."
+    },
+    "archive": {
+      "title": "Archive",
+      "body": "Browse past events, recordings, and publications."
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "Have a question or collaboration idea? Reach out via email."
+    }
   }
 }
+
