@@ -2,78 +2,32 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]           # redeploy whenever main changes
-  workflow_dispatch:           # allow manual run in Actions tab
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1 – check out your repo
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2 – install Node and cache npm
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: "npm"
+          cache: npm
 
-      # 3 – install dependencies
-      - name: Install
+      - name: Install dependencies
         run: npm ci
 
-      # 4 – build the Vite site
-      - name: Build
-        run: npm run deploy     # deploy script = vite build
+      - name: Build site
+        run: npm run deploy            # vite build outputs to ./dist
 
-      # 5 – publish ./dist to the gh-pages branch
-      - name: Publish
+      - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}   # ← PAT secret
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./dist
-          force_orphan: true                              # create branch first time
-          # cname: logic-in-philosophy.sites.tau.ac.il     # uncomment when DNS ready
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]           # redeploy whenever main changes
-  workflow_dispatch:           # allow manual run in Actions tab
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      # 1 – check out your repo
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      # 2 – install Node and cache npm
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: "npm"
-
-      # 3 – install dependencies
-      - name: Install
-        run: npm ci
-
-      # 4 – build the Vite site
-      - name: Build
-        run: npm run deploy     # deploy script = vite build
-
-      # 5 – publish ./dist to the gh-pages branch
-      - name: Publish
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}   # ← PAT secret
-          publish_dir: ./dist
-          force_orphan: true                              # create branch first time
-          # cname: logic-in-philosophy.sites.tau.ac.il     # uncomment when DNS ready
-
+          force_orphan: true
