@@ -31,3 +31,4 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./dist
           force_orphan: true
+          enable_jekyll: true
