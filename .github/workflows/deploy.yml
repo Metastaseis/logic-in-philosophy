@@ -21,15 +21,19 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+            
       - name: Build site
-        run: npm run deploy            # vite build outputs to ./dist
+        run: npm run deploy        
+
+      - name: Copy index.html → 404.html
+        run: cp dist/index.html dist/404.html
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}   # or github_token for public repo
           publish_dir: ./dist
           force_orphan: true
           enable_jekyll: true
-          single_page: true 
+     
+
