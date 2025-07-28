@@ -2,38 +2,44 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
+
+permissions:                         
+  contents: write                    
+  pages: write                       
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
 
-      - name: Install dependencies
+      - name: Install deps
         run: npm ci
-            
-      - name: Build site
-        run: npm run deploy        
 
-      - name: Copy index.html → 404.html
+      - name: Build (Vite)
+        run: npm run deploy          # vite build -> dist/
+
+      - name: Copy index ➜ 404
         run: cp dist/index.html dist/404.html
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  
+          github_token: ${{ secrets.GITHUB_TOKEN }}   # built-in token
           publish_dir: ./dist
           force_orphan: true
+          enable_jekyll: true
+
 
      
 
