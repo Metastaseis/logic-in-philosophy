@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2024-09-01",
+    "title": "Inaugural Workshop",
+    "link": "/events/workshop",
+    "color": "bauBlue"
+  },
+  {
+    "date": "2024-10-15",
+    "title": "Guest Lecture Series",
+    "link": "/events/lecture",
+    "color": "bauRed"
+  },
+  {
+    "date": "2024-11-10",
+    "title": "Philosophy Meetup",
+    "link": "/events/meetup",
+    "color": "bauYellow"
+  }
+]
