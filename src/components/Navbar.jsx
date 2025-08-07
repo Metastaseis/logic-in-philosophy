@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import Marquee from "react-fast-marquee";
+import Marquee from "react-fast-marquee";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { t } = useTranslation();
-  const announcements = [
+   const announcements = [
     "Call for Papers: Logic in AI",
     "Video: 2024 Workshop recordings live",
     "New! Hebrew translations of resources",
@@ -57,7 +58,7 @@ export default function Navbar() {
         </ul>
         <LanguageSwitcher />
       </nav>
-      <Marquee speed={40} className="bg-bauBlue text-white">
+            <Marquee speed={40} className="bg-bauBlue text-white">
         {announcements.map((item, idx) => (
           <span key={idx} className="mx-4">
             {item}

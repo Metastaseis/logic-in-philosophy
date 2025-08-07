@@ -4,19 +4,24 @@ import events from "../data/events.json";
 
 export default function EventStripe() {
   return (
-    <div className="overflow-x-auto py-4">
-      <div className="flex space-x-4 snap-x snap-mandatory scroll-smooth overflow-x-auto">
-        {events.map(({ date, title, link, color }, idx) => (
+    <section className="overflow-x-auto py-12 bg-bauGray/20">
+      <div
+        className="flex gap-6 px-6"
+        style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+      >
+        {events.map(({ title, date, color, link }) => (
           <Link
-            key={idx}
+            key={title}
             to={link}
-            className={`w-64 h-64 flex-shrink-0 rounded-lg p-4 text-white snap-center flex flex-col justify-between bg-${color}`}
+            className={`flex-none w-64 h-64 rounded-2xl p-6 shadow-lg text-white
+                        bg-${color} transition-transform hover:-translate-y-1`}
+            style={{ scrollSnapAlign: "center" }}
           >
-            <span className="text-sm">{date}</span>
-            <span className="text-2xl font-semibold">{title}</span>
+            <p className="text-sm opacity-80 mb-4">{date}</p>
+            <h3 className="text-2xl font-bold leading-snug">{title}</h3>
           </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
