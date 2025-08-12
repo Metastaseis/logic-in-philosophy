@@ -1,10 +1,22 @@
+// src/pages/Archive.jsx
 import React from "react";
+import PageLayout from "../components/PageLayout";
+
+// Eager-import all images in src/assets/archive
+const images = import.meta.glob("../assets/archive/*.{jpg,png,webp}", {
+  eager: true,
+  as: "url",
+});
 
 export default function Archive() {
   return (
-    <div className="text-center">
-      <h1 className="text-3xl font-bold">Archive Page</h1>
-      <p className="mt-4">This is the Archive page.</p>
-    </div>
+    <PageLayout title="Archive">
+      <div className="masonry">
+        {Object.values(images).map((src, i) => (
+          <img key={i} src={src} alt="Archive item" />
+        ))}
+      </div>
+    </PageLayout>
   );
 }
+
