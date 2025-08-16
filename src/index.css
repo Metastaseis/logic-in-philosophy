@@ -3,6 +3,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-display: "Jost", "Inter", system-ui, sans-serif;
+}
+
+/* English (Latin) */
+:lang(en) {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Jost", "Inter", system-ui, sans-serif;
+}
+
+/* Hebrew */
+:lang(he) {
+  --font-sans: "Heebo", system-ui, sans-serif;
+  --font-display: "Heebo", system-ui, sans-serif;
+}
+
+/* Arabic */
+:lang(ar) {
+  --font-sans: "Tajawal", system-ui, sans-serif;
+  --font-display: "Tajawal", system-ui, sans-serif;
+}
+
+/* Apply to body + headings (keeps your existing classes) */
+body {
+  /* your body already used `font-bauhaus`; that now maps to var(--font-sans) */
+  @apply font-bauhaus antialiased text-gray-900;
+}
+
+/* Make headings use the display face */
+h1, h2, h3 {
+  @apply font-display font-bold tracking-tight;
+}
+
+/* Subtle Bauhaus uppercase for EN headings only */
+:lang(en) h1, :lang(en) h2, :lang(en) h3 {
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 
 body {
   @apply font-bauhaus text-gray-900 antialiased bg-white dark:bg-gray-950 dark:text-gray-100;
