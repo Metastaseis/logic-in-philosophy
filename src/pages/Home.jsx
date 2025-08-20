@@ -27,11 +27,11 @@ export default function Home() {
       <MotionFade delay={0.1}>
         <CategoryTiles
           items={[
-            { to: "/workshop",  label: t("nav.workshop", "Workshop"),  color: "bauYellow", emoji: "🗓️" },
-            { to: "/media",     label: t("nav.media", "Media"),        color: "bauRed",    emoji: "🎥" },
-            { to: "/resources", label: t("nav.resources", "Resources"), color: "bauBlue",   emoji: "📚" },
-          ]}
-        />
+           { to: "/workshop",  label: t("nav.workshop", "Workshop"),  color: "bauYellow", icon: "calendar" },
+           { to: "/media",     label: t("nav.media", "Media"),        color: "bauRed",    icon: "film" },
+           { to: "/resources", label: t("nav.resources", "Resources"), color: "bauBlue",   icon: "book" },
+        ]}
+/>  
       </MotionFade>
 
       <MotionFade delay={0.12}>
