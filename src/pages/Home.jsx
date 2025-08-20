@@ -6,6 +6,7 @@ import CategoryTiles from "../components/CategoryTiles";
 import EventStripe from "../components/EventStripe";
 import MotionFade from "../utils/MotionFade";
 import hero1 from "../assets/hero/hero1.jpg";
+import PromoGrid from "../components/PromoGrid";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -31,6 +32,10 @@ export default function Home() {
             { to: "/resources", label: t("nav.resources", "Resources"), color: "bauBlue",   emoji: "📚" },
           ]}
         />
+      </MotionFade>
+
+      <MotionFade delay={0.12}>
+        <PromoGrid />
       </MotionFade>
 
       {/* Events stripe (keep as-is) */}

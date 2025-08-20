@@ -1,13 +1,17 @@
 import typography from '@tailwindcss/typography';
 import rtl from 'tailwindcss-rtl';
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  // ⬇️ add this block
+  safelist: [
+    'bg-bauRed','bg-bauBlue','bg-bauYellow',
+    'text-bauRed','text-bauBlue','text-bauYellow',
+    'border-bauRed','border-bauBlue','border-bauYellow',
+  ],
   theme: {
     extend: {
       fontFamily: {
-       
         bauhaus: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         display: ['var(--font-display)', 'system-ui', 'sans-serif'],
       },
