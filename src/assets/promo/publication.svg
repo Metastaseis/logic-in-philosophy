@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bauhaus style geometric composition">
+  <!-- background (slightly warm off-white for museum feel) -->
+  <rect width="1600" height="900" fill="#F5F5EF"/>
+
+  <!-- subtle vertical rhythm lines (very faint) -->
+  <g opacity="0.05" stroke="#000" stroke-width="1">
+    <line x1="520" y1="0" x2="520" y2="900"/>
+    <line x1="880" y1="0" x2="880" y2="900"/>
+    <line x1="1240" y1="0" x2="1240" y2="900"/>
+  </g>
+
+  <!-- large blue circle (bauBlue), pushed right -->
+  <circle cx="1180" cy="470" r="300" fill="#0055A4"/>
+
+  <!-- yellow bar (bauYellow), slight angle -->
+  <g transform="rotate(12 1200 260)">
+    <rect x="1000" y="200" width="400" height="120" fill="#FFB800"/>
+  </g>
+
+  <!-- red diagonal plane (bauRed), bottom-right -->
+  <polygon points="980,560 1600,760 1600,900 1040,900" fill="#D90000"/>
+
+  <!-- black accents (thin rules for modernist vibe) -->
+  <g stroke="#111" stroke-width="6">
+    <line x1="980" y1="620" x2="1400" y2="620"/>
+    <line x1="1050" y1="690" x2="1500" y2="690"/>
+  </g>
+
+  <!-- small white cutout to create layering contrast -->
+  <circle cx="1380" cy="350" r="60" fill="#FFFFFF" opacity="0.85"/>
+
+  <!-- left-side negative space guide (not visible; just a hint)
+       Keep roughly the left 520px for overlay text (our component’s copy sits here). -->
+  <!-- <rect x="0" y="0" width="520" height="900" fill="none" stroke="#00f" stroke-opacity="0.0"/> -->
+</svg>
