@@ -1,160 +1,94 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-  --font-display: "Jost", "Inter", system-ui, sans-serif;
-}
-
-/* English (Latin) */
-:lang(en) {
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Jost", "Inter", system-ui, sans-serif;
-}
-
-/* Hebrew */
-:lang(he) {
-  --font-sans: "Heebo", system-ui, sans-serif;
-  --font-display: "Heebo", system-ui, sans-serif;
-}
-
-/* Arabic */
-:lang(ar) {
-  --font-sans: "Tajawal", system-ui, sans-serif;
-  --font-display: "Tajawal", system-ui, sans-serif;
-}
-
-/* Apply to body + headings (keeps your existing classes) */
-body {
-  /* your body already used `font-bauhaus`; that now maps to var(--font-sans) */
-  @apply font-bauhaus antialiased text-gray-900;
-}
-
-/* Make headings use the display face */
-h1, h2, h3 {
-  @apply font-display font-bold tracking-tight;
-}
-
-/* Subtle Bauhaus uppercase for EN headings only */
-:lang(en) h1, :lang(en) h2, :lang(en) h3 {
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-
-body {
-  @apply font-bauhaus text-gray-900 antialiased bg-white dark:bg-gray-950 dark:text-gray-100;
-}
-
-h1,
-h2,
-h3 {
-  @apply font-bold tracking-tight;
-}
-
-:focus-visible {
-  @apply ring-2 ring-offset-2 ring-bauBlue;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .modal-enter-active,
-  .modal-exit-active {
-    transition: none !important;
-    transform: translateX(0) !important;
+/* -------------------------------
+   TYPOGRAPHY DEFAULTS (from before)
+   ------------------------------- */
+@layer base {
+  body {
+    @apply font-bauhaus font-medium antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display font-bold;
   }
 }
 
-.hero-diagonal {
-  background: linear-gradient(
-    135deg,
-    #d90000 0%,
-    #d90000 60%,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  mix-blend-mode: multiply;
-}
+/* ================================
+   BAUHAUS VISUAL SYSTEM (GLOBAL)
+   ================================ */
+@layer base {
+  /* Museum off-white background + crisp text */
+  html, body {
+    background: #F5F5EF;
+    color: #111;
+  }
 
-.hero-diagonal {
-  position: relative;
-  overflow: hidden;
-}
-.hero-diagonal::before {
-  content: '';
-  position: absolute;
-  right: -40vw;
-  bottom: 0;
-  width: 100vw;
-  height: 120%;
-  background: theme('colors.bauRed');
-  transform: rotate(-4deg);
-  transform-origin: bottom right;
-}
+  /* Heading scale & rhythm */
+  h1 { @apply text-5xl leading-tight; }
+  h2 { @apply text-3xl leading-snug; }
+  h3 { @apply text-2xl leading-snug; }
 
-.nav-underline {
-  position: relative;
-}
-.nav-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: theme('colors.bauRed');
-  transition: width 0.3s ease, left 0.3s ease;
-}
-.nav-underline:hover::after,
-.nav-underline.router-link-active::after {
-  width: 100%;
-  left: 0;
-}
+  /* English-only uppercase for headings (keeps HE/AR natural) */
+  :lang(en) h1, :lang(en) h2, :lang(en) h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
 
-.masonry {
-  column-count: 1;
-  column-gap: 1rem;
-}
-@media (min-width: 768px) {
-  .masonry {
-    column-count: 3;
+  /* Accessible, brand-colored keyboard focus */
+  :focus-visible {
+    outline: 2px solid #d90000; /* bauRed */
+    outline-offset: 2px;
   }
 }
-.masonry img {
-  break-inside: avoid;
-  width: 100%;
-  margin-bottom: 1rem;
-  border-radius: theme('borderRadius.lg');
-  box-shadow: theme('boxShadow.md');
+
+/* -------------------------------
+   COMPONENT STYLES
+   ------------------------------- */
+@layer components {
+  /* UI weight helpers */
+  .ui { @apply font-semibold; }
+  .ui-muted { @apply font-semibold opacity-80; }
+
+  /* Bauhaus-style red underline for nav links (hover/active) */
+  .nav-underline { position: relative; }
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px; background: #d90000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+  .nav-underline:hover::after,
+  .nav-underline[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  /* Unified buttons */
+  .btn { @apply ui inline-flex items-center justify-center px-5 py-2.5 rounded-bau transition; }
+  .btn-primary { @apply bg-bauRed text-white hover:bg-red-700; }
+  .btn-outline { @apply border border-black/20 text-black hover:bg-black/5; }
+  .btn-ghost   { @apply text-black hover:bg-black/5; }
+
+  /* Micro-transitions for all interactive elements */
+  a, button {
+    transition: color .15s ease, background-color .15s ease, transform .15s ease, opacity .15s ease;
+  }
+
+  /* Link-with-arrow helper + RTL arrow flip */
+  .link-arrow { display: inline-flex; align-items: center; }
+  .link-arrow:hover { opacity: .9; }
+  .rtl-flip { transform: scaleX(1); }
+  [dir="rtl"] .rtl-flip { transform: scaleX(-1); }
 }
 
-.scroll-snap-x {
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-.scroll-snap-align {
-  scroll-snap-align: center;
-}
-
-.modal-enter {
-  transform: translateX(100%);
-}
-.modal-enter-active {
-  transform: translateX(0);
-  transition: transform 300ms ease-out;
-}
-.modal-exit {
-  transform: translateX(0);
-}
-.modal-exit-active {
-  transform: translateX(100%);
-  transition: transform 300ms ease-in;
-}
-.sticky-nav { @apply bg-black/80 backdrop-blur supports-backdrop-blur; 
-}
-
+/* -------------------------------
+   UTILITIES
+   ------------------------------- */
 @layer utilities {
+  /* Brand color fallbacks to guarantee classes always exist */
   .bg-bauRed    { background-color: #d90000; }
   .bg-bauBlue   { background-color: #0055a4; }
   .bg-bauYellow { background-color: #ffb800; }
@@ -166,61 +100,63 @@ h3 {
   .border-bauRed    { border-color: #d90000; }
   .border-bauBlue   { border-color: #0055a4; }
   .border-bauYellow { border-color: #ffb800; }
-}
 
-@layer components {
-  /* Bauhaus-style underline for active/hover nav links */
-  .nav-underline {
-    position: relative;
+  /* Bauhaus diagonal overlay used in Hero/Promo */
+  .hero-diagonal {
+    background: linear-gradient(
+      135deg,
+      #d90000 0%,
+      #d90000 60%,
+      rgba(0,0,0,0) 60%,
+      rgba(0,0,0,0) 100%
+    );
+    mix-blend-mode: multiply;
   }
-  .nav-underline::after {
-    content: "";
-    position: absolute;
-    left: 0;            /* works fine in LTR/RTL */
-    right: 0;
-    bottom: -2px;
-    height: 2px;
-    background: #d90000; /* bauRed */
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 180ms ease;
-  }
-  .nav-underline:hover::after,
-  .nav-underline[aria-current="page"]::after {
-    transform: scaleX(1);
-  }
-}
 
-@layer utilities {
- 
-  .masonry {
-    column-gap: 1rem;
-    column-count: 1;
+  /* Section spacing helpers */
+  .section { @apply py-16; }
+  .section-tight { @apply py-10; }
+
+  /* Geometric corners + modern shadow */
+  .rounded-bau { border-radius: 10px; }
+  .shadow-bau {
+    box-shadow:
+      0 10px 15px -15px rgb(0 0 0 / 0.25),
+      0 4px 6px -4px rgb(0 0 0 / 0.20);
   }
-  @media (min-width: 768px) { .masonry { column-count: 2; } }
+
+  /* Archive masonry */
+  .masonry { column-gap: 1rem; column-count: 1; }
+  @media (min-width: 768px)  { .masonry { column-count: 2; } }
   @media (min-width: 1024px) { .masonry { column-count: 3; } }
-
-  .masonry > img,
-  .masonry > a {
+  .masonry > img, .masonry > a {
     break-inside: avoid;
     margin-bottom: 1rem;
     width: 100%;
     border-radius: 0.75rem; /* rounded-xl */
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.20),
+      0 4px 6px -4px rgb(0 0 0 / 0.20);
   }
-}
 
-@layer base {
-  /* Highly visible, brand-coloured keyboard focus (accessibility + polish) */
-  :focus-visible {
-    outline: 2px solid #d90000; /* bauRed */
-    outline-offset: 2px;
+  /* Optional: debug grid overlay (toggle by adding .debug-grid to <body>) */
+  .debug-grid {
+    background-image:
+      linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
+      linear-gradient(to right,  rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 8px 8px, 8px 8px;
   }
 }
 
 @layer components {
-  /* Subtle default transitions on interactive elements */
-  a, button {
-    transition: color 150ms ease, background-color 150ms ease, transform 150ms ease, opacity 150ms ease;
+  /* Sticky header scaffold + subtle shadow/border when scrolled */
+  .header-sticky { position: sticky; top: 0; z-index: 50; }
+
+  .header-scrolled {
+    box-shadow:
+      0 10px 15px -20px rgb(0 0 0 / 0.4), /* softer than shadow-bau */
+      0 4px 6px -4px rgb(0 0 0 / 0.25);
+    border-bottom: 1px solid rgba(0,0,0,.06);
   }
 }
+

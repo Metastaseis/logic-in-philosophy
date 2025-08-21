@@ -38,8 +38,17 @@ export default function Navbar() {
     { to: "/contact",   label: t("nav.contact", "Contact") },
   ];
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+useEffect(() => {
+  const onScroll = () => setIsScrolled(window.scrollY > 8);
+  onScroll(); // set initial
+  window.addEventListener("scroll", onScroll, { passive: true });
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
+
   return (
-    <header className="bg-black text-white sticky top-0 z-50">
+    <header className={`header-sticky ${isScrolled ? "header-scrolled" : ""} bg-black text-white`}>
       {/* Top bar */}
       <nav className="container mx-auto flex items-center justify-between p-4">
         <Link to="/" className="text-xl font-semibold">

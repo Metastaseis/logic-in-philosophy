@@ -1,0 +1,23 @@
+[
+  {
+    "id": "n1",
+    "date": "2025-10-04",
+    "category": "Workshop",
+    "title": "Proof Theory & Semantics — Call for Abstracts",
+    "href": "/workshop"
+  },
+  {
+    "id": "n2",
+    "date": "2025-09-22",
+    "category": "Media",
+    "title": "Video: Nonclassical Logics in Linguistics",
+    "href": "/media"
+  },
+  {
+    "id": "n3",
+    "date": "2025-08-15",
+    "category": "Resources",
+    "title": "Syllabus: Modal Logic (Autumn 2025)",
+    "href": "/resources"
+  }
+]

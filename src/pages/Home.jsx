@@ -7,6 +7,8 @@ import EventStripe from "../components/EventStripe";
 import MotionFade from "../utils/MotionFade";
 import hero1 from "../assets/hero/hero1.jpg";
 import PromoGrid from "../components/PromoGrid";
+import PromoShowcase from "../components/PromoShowcase";
+import NewsStrip from "../components/NewsStrip";
 
 export default function Home() {
   const { t } = useTranslation();
@@ -35,7 +37,11 @@ export default function Home() {
       </MotionFade>
 
       <MotionFade delay={0.12}>
-        <PromoGrid />
+        <PromoShowcase />
+      </MotionFade>
+
+      <MotionFade delay={0.15}>
+        <NewsStrip />
       </MotionFade>
 
       {/* Events stripe (keep as-is) */}
