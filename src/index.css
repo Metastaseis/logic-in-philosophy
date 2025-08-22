@@ -240,3 +240,23 @@
   .duo-screen-cream     { background: #fff3d6; mix-blend-mode: screen;   opacity: .34; }
 }
 
+@layer components {
+  /* Base card primitives */
+  .card        { @apply bg-white rounded-bau ring-1 ring-black/10 shadow-bau; }
+  .card-pad    { @apply p-6 md:p-8; }
+  .card-hover  { @apply transition hover:-translate-y-1; }
+  .card-link   { @apply block no-underline text-inherit; }
+
+  /* Solid colour cards (brand + diverse accents) */
+  .card-solid-red     { @apply rounded-bau ring-1 ring-black/10 text-white  bg-bauRed; }
+  .card-solid-blue    { @apply rounded-bau ring-1 ring-black/10 text-white  bg-bauBlue; }
+  .card-solid-yellow  { @apply rounded-bau ring-1 ring-black/10 text-black  bg-bauYellow; }
+  .card-solid-cyan    { @apply rounded-bau ring-1 ring-black/10 text-black  bg-[#00bcd4]; }
+  .card-solid-magenta { @apply rounded-bau ring-1 ring-black/10 text-white  bg-[#d81b60]; }
+  .card-solid-green   { @apply rounded-bau ring-1 ring-black/10 text-white  bg-[#2e7d32]; }
+
+  /* Image card container */
+  .card-img    { @apply relative overflow-hidden rounded-bau ring-1 ring-black/10 shadow-bau; }
+  .card-img > img { @apply absolute inset-0 w-full h-full object-cover; }
+}
+
