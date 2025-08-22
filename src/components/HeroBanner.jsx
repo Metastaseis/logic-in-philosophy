@@ -15,6 +15,7 @@ export default function HeroBanner({
       />
       {/* Contrast overlay above image */}
       <div className="absolute inset-0 bg-black/35 z-10" aria-hidden="true" />
+      <div className="overlay tint-yellow" aria-hidden="true" /> 
       {/* Optional diagonal red plane (blends with image) */}
       <div
         className="hero-diagonal absolute inset-0 z-20 pointer-events-none"

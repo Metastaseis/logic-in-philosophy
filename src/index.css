@@ -203,3 +203,40 @@
   }
 }
 
+@layer utilities {
+  /* ---------- Overlay base ---------- */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20; /* content in our hero is z-30 */
+  }
+
+  /* ---------- Grain (data-URI) ---------- */
+  /* Lightweight noise texture; adjust opacity per size */
+  .grain-sm { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAABG1FyoAAAAGXRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjFQb2dZAAAAPUlEQVR4Xu3OMQEAIAwEsQ7//2bQpKqg8wI2mPg2hxkQzvL3kz4/2A7EflQw8QDGyYwXH8wF8r4uN7oK0sK5CwD8GmOheQY2VbAAAAAElFTkSuQmCC"); background-size: 200px 200px; opacity: .08; }
+  .grain-md { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAABG1FyoAAAAGXRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjFQb2dZAAAAPUlEQVR4Xu3OMQEAIAwEsQ7//2bQpKqg8wI2mPg2hxkQzvL3kz4/2A7EflQw8QDGyYwXH8wF8r4uN7oK0sK5CwD8GmOheQY2VbAAAAAElFTkSuQmCC"); background-size: 200px 200px; opacity: .14; }
+  .grain-lg { background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAABG1FyoAAAAGXRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjFQb2dZAAAAPUlEQVR4Xu3OMQEAIAwEsQ7//2bQpKqg8wI2mPg2hxkQzvL3kz4/2A7EflQw8QDGyYwXH8wF8r4uN7oK0sK5CwD8GmOheQY2VbAAAAAElFTkSuQmCC"); background-size: 200px 200px; opacity: .22; }
+
+  /* ---------- Simple brand tints (multiply) ---------- */
+  .tint-red     { background: #d90000; mix-blend-mode: multiply; opacity: .26; }
+  .tint-blue    { background: #0055a4; mix-blend-mode: multiply; opacity: .26; }
+  .tint-yellow  { background: #ffb800; mix-blend-mode: multiply; opacity: .20; }
+
+  /* ---------- Extra colours for diversity ---------- */
+  .tint-cyan    { background: #00bcd4; mix-blend-mode: multiply; opacity: .24; }
+  .tint-magenta { background: #d81b60; mix-blend-mode: multiply; opacity: .24; }
+  .tint-green   { background: #2e7d32; mix-blend-mode: multiply; opacity: .24; }
+
+  /* ---------- Duotone pairs (layer two overlays) ----------
+     Use one "multiply" + one "screen" overlay together. */
+  .duo-multiply-red     { background: #a40000; mix-blend-mode: multiply; opacity: .36; }
+  .duo-screen-yellow    { background: #ffe08a; mix-blend-mode: screen;   opacity: .34; }
+
+  .duo-multiply-blue    { background: #003b7a; mix-blend-mode: multiply; opacity: .36; }
+  .duo-screen-cyan      { background: #9be7ff; mix-blend-mode: screen;   opacity: .34; }
+
+  .duo-multiply-magenta { background: #94003a; mix-blend-mode: multiply; opacity: .36; }
+  .duo-screen-cream     { background: #fff3d6; mix-blend-mode: screen;   opacity: .34; }
+}
+

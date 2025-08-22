@@ -57,6 +57,9 @@ export default function PromoShowcase() {
           {/* subtle brand angle */}
           <div className="hero-diagonal absolute inset-0 mix-blend-multiply opacity-80" aria-hidden="true" />
 
+          <div className="overlay tint-magenta" aria-hidden="true" />
+          <div className="overlay grain-sm" aria-hidden="true" />
+
           {/* content */}
           <div className="relative z-10 p-6 md:p-8 text-white max-w-xl">
             <p className="ui text-sm mb-2 opacity-90">
