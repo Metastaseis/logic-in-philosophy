@@ -19,9 +19,9 @@ export default function CategoryTiles({ items = [] }) {
             <Link
               key={to}
               to={to}
-              className={`group aspect-square rounded-2xl shadow-md flex items-center justify-center
-                          text-white text-xl font-semibold hover:-translate-y-1 transition
-                          ${colorMap[color] ?? "bg-bauBlue"}`}
+              className={`group aspect-square rounded-bau ring-1 ring-black/10 shadow-bau
+            flex items-center justify-center text-white text-xl font-semibold
+            card-hover ${colorMap[color] ?? "bg-bauBlue"}`}
             >
               <div className="text-center px-6">
                 <Icon className="w-12 h-12 mb-3 opacity-90" aria-hidden="true" />
