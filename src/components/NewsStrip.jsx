@@ -23,7 +23,8 @@ export default function NewsStrip() {
   return (
     <section className="container mx-auto px-6 py-10">
       <div className="flex items-end justify-between mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold">
+        <div className="kicker">{t("home.newsKicker","Updates")}</div>
+        <h2 className="section-title title-rule">
           {t("home.newsHeading", "News & Highlights")}
         </h2>
         <Link to="/archive" className="ui link-arrow">

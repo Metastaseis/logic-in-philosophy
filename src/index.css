@@ -160,3 +160,46 @@
   }
 }
 
+@layer components {
+  /* Kicker label above headings (small, red, uppercase for EN only) */
+  .kicker {
+    @apply ui text-xs mb-2 text-bauRed;
+    letter-spacing: 0.08em;
+  }
+  :lang(en) .kicker { text-transform: uppercase; }
+
+  /* Section heading with inline-start red block and optional red rule below */
+  .section-title {
+    /* size is still controlled by your h1/h2 styles; this adds the accent */
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    position: relative;
+  }
+  .section-title::before {
+    content: "";
+    display: inline-block;
+    inline-size: 8px;     /* width */
+    block-size: 1.2em;    /* height matches cap-height nicely */
+    background: #d90000;  /* bauRed */
+    margin-block-start: 0.1em;
+  }
+
+  /* Optional narrow red rule *below* the heading */
+  .title-rule::after {
+    content: "";
+    display: block;
+    inline-size: 72px;
+    block-size: 2px;
+    background: #d90000;
+    margin-block-start: 0.5rem;
+  }
+
+  /* Optional editorial divider under a heading row */
+  .section-head {
+    padding-block-end: 1rem;
+    margin-block-end: 1.5rem;
+    border-block-end: 1px solid rgba(0,0,0,.08);
+  }
+}
+
