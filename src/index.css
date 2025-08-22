@@ -260,3 +260,23 @@
   .card-img > img { @apply absolute inset-0 w-full h-full object-cover; }
 }
 
+@layer components {
+  /* Uppercase headings for EN only (Hebrew/Arabic stay natural) */
+  :lang(en) .prose h1,
+  :lang(en) .prose h2,
+  :lang(en) .prose h3 {
+    text-transform: uppercase;
+  }
+
+  /* Ensure blockquote border respects document direction */
+  .prose :where(blockquote) {
+    border-inline-start: 3px solid #d90000; /* already set in config; this enforces LTR/RTL properly */
+    padding-inline-start: 1rem;
+  }
+
+  /* Optional: subtle red underline on hovered links inside prose */
+  .prose a:hover {
+    text-decoration-color: #d90000;
+  }
+}
+
