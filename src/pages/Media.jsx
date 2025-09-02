@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import ReactPlayer from "react-player";
 import PageLayout from "../components/PageLayout";
+import Prose from "../components/Prose";
 
 
 export default function Media() {
@@ -17,7 +18,7 @@ export default function Media() {
         </h2>
         <div className="aspect-video">
           <ReactPlayer
-            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"  // 🔁 swap
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"  
             width="100%"
             height="100%"
             controls

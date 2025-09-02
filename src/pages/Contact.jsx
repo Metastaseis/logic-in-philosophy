@@ -1,10 +1,18 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import PageLayout from "../components/PageLayout";
+import Prose from "../components/Prose";
 
 export default function Contact() {
+  const { t } = useTranslation();
   return (
-    <div className="text-center">
-      <h1 className="text-3xl font-bold">Contact Page</h1>
-      <p className="mt-4">This is the Contact page.</p>
-    </div>
+    <PageLayout title={t("pages.contact.title", "Contact")}>
+      <Prose>
+        <p>{t("contact.intro", "Reach out with questions, ideas, or collaboration requests.")}</p>
+        <p>
+          <a href="mailto:logic@tau.ac.il">logic@tau.ac.il</a>
+        </p>
+      </Prose>
+    </PageLayout>
   );
 }
